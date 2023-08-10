@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body  style="background-image:url(./images/abcd.jpg)  ; margin: 0; background-size: cover; background-repeat: no-repeat; background-attachment: fixed;" >
+    <div class="text-center mt-3 p-4">
+        <h1 style="color: aqua;">SEARCH <SPan style="color: red;">FILM</SPan> <span style="color: blue;">NAME</span></h1>
+        <form class="bg- border p-3" action="">
+            <div class="  p-5 container text-center  ">
+                <input type="text" class="form-control" name="" id="foreCast" placeholder="Enter The film"><br><br>
+                <button type="button" class="btn btn-success" style="color: whitesmoke;" onclick="findFilm()">SEARCH</button><br><br>
+                <div id="result"
+                    style="color:whitesmoke; height: max-content; font-family: Verdana, Geneva, Tahoma, sans-serif; font-style: oblique;">
+
+                </div>
+
+
+
+            </div>
+        </form>
+    </div>
+
+</body>
+<script>
+    function findFilm() {
+        filmName = foreCast.value
+        fetch(`https://www.omdbapi.com/?i=tt3896198&t=${filmName}&apikey=a8ab1a86`)
+            .then(data => data.json()).then(cData => displayData(cData))
+
+        function displayData(dataArray) {
+            title = dataArray.Title
+            year = dataArray.Year
+            director = dataArray.Director
+            writer = dataArray.Writer
+
+
+            // des = dataArray.description
+            // category = dataArray.category
+            Poster = dataArray.Poster
+
+            result.innerHTML = `<div>
+            <h3 style="color: aqua;">${title}</h3>
+
+            <h3 style="color: red;">${year}</h3>
+            <h3 style="color: blue;">${director}</h3>
+            <h3 style="color: white;">${writer}</h3>
+
+            <img src="${Poster}" class="card-img-top" alt="...">
+
+            </div>`
+
+        }
+    }
+</script>
+
+</html>
