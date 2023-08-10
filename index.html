@@ -18,7 +18,7 @@
     <div class="text-center mt-3 p-4">
         <h1 style="color: aqua;">SEARCH <SPan style="color: red;">FILM</SPan> <span style="color: blue;">NAME</span></h1>
         <form class="bg- border p-3" action="">
-            <div class="  p-5 container text-center  ">
+            <div class="  p-5 container text-center  " style="box-shadow:  10px 10px 5px 12px lightblue;">
                 <input type="text" class="form-control" name="" id="foreCast" placeholder="Enter The film"><br><br>
                 <button type="button" class="btn btn-success" style="color: whitesmoke;" onclick="findFilm()">SEARCH</button><br><br>
                 <div id="result"
@@ -51,11 +51,11 @@
             Poster = dataArray.Poster
 
             result.innerHTML = `<div>
-            <h3 style="color: aqua;">${title}</h3>
+            <h3 style="color: aqua;">MOVIE NAME:${title}</h3>
 
-            <h3 style="color: red;">${year}</h3>
-            <h3 style="color: blue;">${director}</h3>
-            <h3 style="color: white;">${writer}</h3>
+            <h3 style="color: red;">YEAR: ${year}</h3>
+            <h3 style="color: blue;">DIRECTOR:${director}</h3>
+            <h3 style="color: white;">WRITER:${writer}</h3>
 
             <img src="${Poster}" class="card-img-top" alt="...">
 
